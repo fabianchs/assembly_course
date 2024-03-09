@@ -1,0 +1,30 @@
+objdump -sj .rodata example.o
+
+
+Contenido de la sección .rodata:
+ 0000 48656c6c 6f2c2077 6f726c64 2100      Hello, world!.  
+
+
+objdump -M intel -d example.o
+
+example.o:     formato del fichero elf64-x86-64
+
+
+Desensamblado de la sección .text:
+
+0000000000000000 <main>:
+   0:   f3 0f 1e fa             endbr64 
+   4:   55                      push   rbp
+   5:   48 89 e5                mov    rbp,rsp
+   8:   48 83 ec 10             sub    rsp,0x10
+   c:   89 7d fc                mov    DWORD PTR [rbp-0x4],edi
+   f:   48 89 75 f0             mov    QWORD PTR [rbp-0x10],rsi
+  13:   48 8d 05 00 00 00 00    lea    rax,[rip+0x0]        # 1a <main+0x1a>
+  1a:   48 89 c7                mov    rdi,rax
+  1d:   e8 00 00 00 00          call   22 <main+0x22>
+  22:   b8 00 00 00 00          mov    eax,0x0
+  27:   c9                      leave  
+  28:   c3                      ret    
+
+readelf --relocs example.o
+  

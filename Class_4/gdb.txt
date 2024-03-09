@@ -31,3 +31,29 @@ x/13x hexadecimal
 x/s &msg <msg>: "hello world"
 
 
+break main, creates a breakpoint
+
+run
+info registers
+step
+
+rip contains the address of the next instruction
+
+break or b
+continue or c on the next breakpoint
+
+next
+help back slash
+
+tui enable, enable, text ui
+
+print p $rax
+
+delete breakpoint, enable and disable
+
+break main
+
+(gdb) x/fg &pi
+0x404051 <pi>:  3.1400000000000001
+
+rm kigking.o erases the file from the folder

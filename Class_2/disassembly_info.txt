@@ -1,0 +1,11 @@
+1st gen languages
+    Binary code or machine languages
+
+Second Generation languages
+    Assembly
+    Pnemonics
+
+Third Generation    
+    Keywords, C, C#, Java
+
+Compilation process is lossy, function names get lost

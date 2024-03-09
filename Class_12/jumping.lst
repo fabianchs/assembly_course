@@ -1,0 +1,39 @@
+     1                                  ;jumping.asm - Exploring conditional jums
+     2                                  
+     3                                  extern printf ;declare the external function printf
+     4                                  
+     5                                  section .data    
+     6 00000000 2A00000000000000            number1 dq 42 ;defining a variable number1 with the value 42
+     7 00000008 2900000000000000            number2 dq 41 ;defining the variable number2 with the value 41
+     8 00000010 4E554D424552313E3D-         fmt1 db "NUMBER1>=NUMBER2", 10, 0 ;Format string for comparison result 1
+     8 00000019 4E554D424552320A00 
+     9 00000022 4E554D424552313C4E-         fmt2 db "NUMBER1<NUMBER2", 10, 0 ;Format string for comparison result 2
+     9 0000002B 554D424552320A00   
+    10                                  
+    11                                  section .text
+    12                                  
+    13                                  global main
+    14                                  
+    15                                  main: 
+    16 00000000 55                          push rbp ;save the base pointer
+    17 00000001 4889E5                      mov rbp, rsp ;set up the base pointer
+    18 00000004 488B0425[00000000]          mov rax, [number1] ;load the value of number1 into register RAC
+    19 0000000C 488B1C25[08000000]          mov rbx, [number2] ;load the value of number2 into register RBX
+    20 00000014 4839D8                      cmp rax, rbx ; using for comparing the values in rax and rbx
+    21 00000017 7D16                        jge greater ;jump to "grater" if rax is greater than rbx
+    22 00000019 48BF-                       mov rdi, fmt2 ;loading the format string for the second message
+    22 0000001B [2200000000000000] 
+    23 00000023 B800000000                  mov rax, 0 ;clearing rax no xmn resister involver
+    24 00000028 E8(00000000)                call printf ;calls printf to display "n1 less than n2"
+    25 0000002D EB14                        jmp exit ;jump to the exit lable
+    26                                  
+    27                                  greater:
+    28 0000002F 48BF-                       mov rdi, fmt1 ;load the format string for the first message
+    28 00000031 [1000000000000000] 
+    29 00000039 B800000000                  mov rax, 0 ;clearing the RAX again
+    30 0000003E E8(00000000)                call printf ;call print f to display n1 greater than n2
+    31                                  
+    32                                  exit:
+    33 00000043 4889EC                      mov rsp, rbp ;restoring the stack pointer
+    34 00000046 5D                          pop rbp ;restoring the base pointer
+    35 00000047 C3                          ret ;return from the main function
