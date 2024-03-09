@@ -1,0 +1,33 @@
+gdb 
+
+quit Ctrl+X
+
+list = gives all the content of the code
+
+disassemble main, left gives the memory addreses
+
+mp of assembler code for function main:
+   0x0000000000401110 <+0>:     mov    eax,0x1
+   0x0000000000401115 <+5>:     mov    edi,0x1
+   0x000000000040111a <+10>:    movabs rsi,0x404028
+   0x0000000000401124 <+20>:    mov    edx,0xb
+   0x0000000000401129 <+25>:    syscall 
+   0x000000000040112b <+27>:    mov    eax,0x3c
+   0x0000000000401130 <+32>:    mov    edi,0x0
+   0x0000000000401135 <+37>:    syscall 
+
+x/s 0x404028 0x404028 <msg>: "hello world"
+x/c 0x404028 <msg>: 104 'h'
+
+man ascii
+
+x/13c 0x404028 <msg>: 104 'h' 101 'e' 108 'l' 108 'l' 111 'o' 32 ' '     119 'w' 111 'o'
+0x404030:       114 'r' 108 'l' 100 'd' 0 '\000'        0 '
+
+x/13d decimal
+
+x/13x hexadecimal
+
+x/s &msg <msg>: "hello world"
+
+
