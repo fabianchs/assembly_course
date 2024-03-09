@@ -14,7 +14,7 @@ main:
     syscall ;display the string
 
     mov rax, 60  ;Exit CODE
-    mov, rdi, 0 ;0: success exit code
+    mov rdi, 0 ;0: success exit code
     syscall ;quit
 
     
