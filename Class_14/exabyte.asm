@@ -30,4 +30,9 @@ main:
     lea  rax,[text1] ;load the memory adrress of text1 into rax
     mov rax, text1 ;Load the memory address of text1 into rax
     mov rax, text1+1 ;load the value at the second character of text 1 into rax
-    lea rax, [text1+1] ;Load the memory address of text 1 
+    lea rax, [text1+1] ;Load the memory address of the second character of text1 into rax
+    mov rax, [text1] ;load the value stored at the memory address of text1 into rax
+    mov rax, [text1+1] ;load the value stored at the memory address of text1+1 into rax
+    mov rsp, rbp ;restore the value of rsp from rbp (clean up the stack frame)
+    pop rbp ;pop the value of rbp from the stack
+    ret  ;return from the function
