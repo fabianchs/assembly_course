@@ -1,7 +1,7 @@
 extern printf
-
+;time ./calculator gives execution time
 section .data   
-    number dq 5 ;defining 8bytes (quadword)
+    number dq 100 ;defining 8bytes (quadword)
     fmt db "The sum from 0 to %ld is %ld", 10, 0
 
 section .bss
